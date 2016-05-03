@@ -1,13 +1,13 @@
 Feel free to email ([mkolenda@priviahealth.com](mailto:mkolenda@priviahealth.com)) if you have any questions.
 ## Instructions For running
-1) This app is running Ruby 2.2.1 and Rails 4.2.1
-2) Clone Repository locally
-3) Run Bundle Install to pull necessary gem
-4) Run db:migrate for database
-5) Run rails s to start rails server
-6) Navigate to http://localhost:3000
-7) Select new_example file sent via email(my database is a bit differently configured with underscores in the headers and using an item_price2)
-8) Click Import TSV
+1. This app is running Ruby 2.2.1 and Rails 4.2.1
+1. Clone Repository locally
+1. Run Bundle Install to pull necessary gem
+1. Run db:migrate for database
+1. Run rails s to start rails server
+1. Navigate to http://localhost:3000
+1. Select new_example file sent via email(my database is a bit differently configured with underscores in the headers and using an item_price2)
+1. Click Import TSV
 
 ## Submission Instructions
 1. First, fork this project on github.  You will need to create an account if you don't already have one.
