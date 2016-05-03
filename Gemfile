@@ -1,7 +1,13 @@
 source 'https://rubygems.org'
+# Use carrierwave for uploading file
+gem 'carrierwave'
 
 # Use Bootstrap for styling
 gem 'bootstrap-sass'
+
+# Use FasterCSV 
+gem 'fastercsv', '~> 1.5', '>= 1.5.5'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
@@ -41,6 +47,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  # Use RSPEC for testing
+  gem 'rspec-rails', '~> 3.0'
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h2>Data Import Tool</h2>
+
+<h4>Data Upload</h4>
+<p>Upload (.tab) data files.</p>
+<%= form_tag import_data_imports_path, multipart:true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import TSV" %>
+<% end %>
+
+<h4>Import Total</h4>
+<%= DataImport.pluck('sum(item_price2) * sum(purchase_count)').last%>
+<%= @total.inspect %>

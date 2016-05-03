@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  resources :data_imports do
+    collection { post :import }
+  end
 
-  get 'welcome/about'
-
-  root to: 'welcome#index'
+  root to: "data_imports#index"
 end
