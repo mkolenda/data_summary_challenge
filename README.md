@@ -1,39 +1,31 @@
-Feel free to email ([mkolenda@priviahealth.com](mailto:mkolenda@priviahealth.com)) if you have any questions.
+== README
 
-This is my submission to the Privia Health - Coding Challenge. 
+This is Davis Green's submission to the Privia Health - Coding Challenge. Having not been able to begin the challenge immediately, I was very conscious of turning around the challenge quickly. To do so, I made use of Rails scaffolding, something I generally would not do. For that reason that are many superfluous files and code snippets. I have attempted to remove any presence of these from that actual interface of the app.
 
-## Submission Instructions
-1. First, fork this project on github.  You will need to create an account if you don't already have one.
-1. Next, complete the project as described below within your fork.
-1. Finally, push all of your changes to your fork on github and submit a pull request.  You should also email the address above to let them know you have submitted a solution.  Make sure to include your github username in your email (so we can match people with pull requests).
+That being said, I am fairly comfortable with my submission. On the root page the user is invited to both add a new import and view a list of previous imports. Each import can then been viewed by its constituent line items. You'll see I did decide to break down the domain of the problem in to two models: the import and the line item. I thought this was the best way to approach the problem in any kind of scalable way. I can imagine a scenario where the user would want access to the line items as a whole, regardless of the import it was included on, but then also wanting to be able to increase apparatus of the import itself(adding a name or description perhaps -- something I intended on doing with more time).
 
-## Alternate Submission Instructions (if you don't want to publicize completing the challenge)
-1. Clone the repository
-1. Next, complete your project as described below within your local repository
-1. Email a patch file to the appropriate address listed above.
+The only tests that are present are those created by the scaffolding. I did need to edit one of them to make it pass. I realize this testing is not sufficient for a production database.
 
-## Project Description
-Imagine that PriviaHealth has just acquired a new company.  Unfortunately, the company has never stored their data in a database and instead uses a plain text file.  We need to create a way for the new subsidiary to import their data into a database.  Your task is to create a web interface that accepts file uploads, normalizes the data, and then stores it in a relational database.
+To View Submission:
 
-Here's what your web-based application must do:
+1.) Clone this Repo.
 
-1. Your app must accept (via a form) a tab delimited file with the following columns: purchaser name, item description, item price, purchase count, merchant address, and merchant name.  You can assume the columns will always be in that order, that there will always be data in each column, and that there will always be a header line.  An example input file named example_input.tab is included in this repo.
-1. Your app must parse the given file, normalize the data, and store the information in a relational database.
-1. After upload, your application should display the total amount gross revenue represented by the uploaded file.
-1. Your app is written in Rails.
-1. Your app can use any open source libraries as necessary
+2.) Select my Solution.
+  `$cd privia_solution`
 
-Your application does not need to:
+3.) Install Gems
+  `$bundle install`
 
-1. handle authentication or authorization
-1. be aesthetically pleasing
+4.) Setup Database and Migrations
+  `$rake db:create db:migrate`
 
-Your application should be easy to set up and should run on either Linux or Mac OS X.  It should not require any for-pay software.
+5.) Run Rails Server
+  `$rails s`
 
-## Evaluation
-Evaluation of your submission will be based on the following criteria. Additionally, reviewers will attempt to assess your familiarity with standard libraries. If your code submission is in Ruby, reviewers will attempt to assess your experience with object-oriented programming based on how you've structured your submission.
+6.) Go to http://localhost:3000/
 
-1. Did your application fulfill the basic requirements?
-1. Did you document the method for setting up and running your application?
-1. Did you follow the instructions for submission?
-1. Did you write tests?
+7.) Click on "Choose File" select your the tab delimited "example_input.tab" file located in this repo (I noticed something inconsistent in the original).
+
+8.) Click Import File.
+
+You should now notice the beginning of a list of imports, including some additional functionality to view and edit the included line items.
