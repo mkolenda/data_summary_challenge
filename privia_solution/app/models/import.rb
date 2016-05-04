@@ -2,6 +2,14 @@ class Import < ActiveRecord::Base
   has_many :line_items, dependent: :destroy
   require 'csv'
 
+  def total_value
+    total_value = 0
+    self.line_items.each do |f|
+      total_value += f.item_price * f.purchase_count
+    end
+    return total_value
+  end
+
 
   def self.import(file)
     import = Import.create!

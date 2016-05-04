@@ -7,18 +7,20 @@
 <table>
   <thead>
     <tr>
-      <th colspan="5"></th>
+      <th>Import Id</th>
+      <th>View Import</th>
+      <th>Delete Import</th>
+      <th>Total Amount Gross Revenue</th>
     </tr>
   </thead>
 
   <tbody>
     <% @imports.each do |import| %>
       <tr>
-        <td><%= import.id %> </td>
+        <td><%= import.id %></td>
         <td><%= link_to 'Show', import %></td>
-        <td><%= link_to 'Edit', edit_import_path(import) %></td>
         <td><%= link_to 'Destroy', import, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td>Sum</td>
+        <td><%= number_to_currency(import.total_value) %></td>
       </tr>
     <% end %>
   </tbody>

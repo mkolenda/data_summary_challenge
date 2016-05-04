@@ -10,6 +10,8 @@ class ImportsController < ApplicationController
   # GET /imports/1
   # GET /imports/1.json
   def show
+    @import = Import.find(params[:id])
+    @line_items = @import.line_items
   end
 
   # GET /imports/new

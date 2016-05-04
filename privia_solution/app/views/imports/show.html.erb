@@ -1,4 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_import_path(@import) %> |
-<%= link_to 'Back', imports_path %>
+<h1><%= "Import ##{@import.id}" %></h1>
+<h2><%= "Total Value = #{number_to_currency(@import.total_value)}"%></h2>
+
+<%= link_to 'Home', imports_path %>
+
+<table>
+  <thead>
+    <tr>
+      <th>Purchaser Name</th>
+      <th>Item Description</th>
+      <th>Item Price</th>
+      <th>Purchase Count</th>
+      <th>Merchant Address</th>
+      <th>Merchant Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if !@line_items.blank? %>
+      <% for item in @line_items %>
+        <%= render 'line_items/form', :@line_item => item %>
+      <% end %>
+    <% else %>
+
+  </tbody>
+</table>
+<% end %>
