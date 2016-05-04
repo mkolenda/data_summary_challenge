@@ -11,19 +11,23 @@ To View Submission($bash commands):
 ###1. Clone this Repo.
 
 ###2. Navigate Into My Solution.
-  ```$cd data_summary_challenge/privia_solution
+  ```
+  $cd data_summary_challenge/privia_solution
   ```
 
 ###3. Install Gems
-  ```$bundle install
+  ```
+  $bundle install
   ```
 
 ###4. Setup Database and Migrations
-  ```$rake db:create db:migrate
+  ```
+  $rake db:create db:migrate
   ```
 
 ###5. Run Rails Server
-  ```$rails s
+  ```
+  $rails s
   ```
 
 ###6. Visit http://localhost:3000/ in your local browser.
