@@ -1,5 +1,7 @@
 Feel free to email ([mkolenda@priviahealth.com](mailto:mkolenda@priviahealth.com)) if you have any questions.
 
+This is my submission to the Privia Health - Coding Challenge. 
+
 ## Submission Instructions
 1. First, fork this project on github.  You will need to create an account if you don't already have one.
 1. Next, complete the project as described below within your fork.
@@ -23,7 +25,7 @@ Here's what your web-based application must do:
 
 Your application does not need to:
 
-1. handle authentication or authorization 
+1. handle authentication or authorization
 1. be aesthetically pleasing
 
 Your application should be easy to set up and should run on either Linux or Mac OS X.  It should not require any for-pay software.

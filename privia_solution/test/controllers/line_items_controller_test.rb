@@ -35,8 +35,9 @@ class LineItemsControllerTest < ActionController::TestCase
   end
 
   test "should update line_item" do
+    @request.env['HTTP_REFERER'] = 'imports'
     patch :update, id: @line_item, line_item: { item_description: @line_item.item_description, item_price: @line_item.item_price, merchant_address: @line_item.merchant_address, merchant_name: @line_item.merchant_name, purchase_count: @line_item.purchase_count, purchaser_name: @line_item.purchaser_name }
-    assert_redirected_to line_item_path(assigns(:line_item))
+    assert_redirected_to 'imports'
   end
 
   test "should destroy line_item" do
