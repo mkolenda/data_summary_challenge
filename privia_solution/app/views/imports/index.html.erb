@@ -1,0 +1,27 @@
+<%= render 'import' %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Imports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @imports.each do |import| %>
+      <tr>
+        <td><%= import.id %> </td>
+        <td><%= link_to 'Show', import %></td>
+        <td><%= link_to 'Edit', edit_import_path(import) %></td>
+        <td><%= link_to 'Destroy', import, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>Sum</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
