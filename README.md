@@ -12,22 +12,22 @@ To View Submission($bash commands):
 
 ###2. Navigate Into My Solution.
   ```
-  $cd data_summary_challenge/privia_solution
+  $ cd data_summary_challenge/privia_solution
   ```
 
 ###3. Install Gems
   ```
-  $bundle install
+  $ bundle install
   ```
 
 ###4. Setup Database and Migrations
   ```
-  $rake db:create db:migrate
+  $ rake db:create db:migrate
   ```
 
 ###5. Ensure tests pass
   ```
-  rake test
+  $ rake test
   ```
   Should receive something like:
   ```
@@ -45,10 +45,11 @@ To View Submission($bash commands):
 
 ###6. Run Rails Server
   ```
-  $rails s
+  $ rails s
   ```
 
 ###7. Visit http://localhost:3000/ in your local browser.
+  ...or port designated when you set up db
 
 ###8. Click on "Choose File" select the tab delimited "example_input.tab" file located in this repo (I noticed something inconsistent in the original).
 
