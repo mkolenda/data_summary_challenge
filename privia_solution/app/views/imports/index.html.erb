@@ -1,0 +1,29 @@
+<%= render 'import' %>
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Imports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Import Id</th>
+      <th>View Import</th>
+      <th>Delete Import</th>
+      <th>Total Amount Gross Revenue</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @imports.each do |import| %>
+      <tr>
+        <td><%= import.id %></td>
+        <td><%= link_to 'Show', import %></td>
+        <td><%= link_to 'Destroy', import, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= number_to_currency(import.total_value) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

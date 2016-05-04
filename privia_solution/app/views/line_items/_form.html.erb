@@ -1,0 +1,25 @@
+<%= form_for(@line_item) do |f| %>
+  <tr>
+    <td class="field">
+      <%= f.text_field :purchaser_name %>
+    </td>
+    <td class="field">
+      <%= f.text_area :item_description %>
+    </td>
+    <td class="field">
+      <%= f.number_field :item_price %>
+    </td>
+    <td class="field">
+      <%= f.number_field :purchase_count %>
+    </td>
+    <td class="field">
+      <%= f.text_field :merchant_address %>
+    </td>
+    <td class="field">
+      <%= f.text_field :merchant_name %>
+    </td>
+    <td class="actions">
+      <%= f.submit %>
+    </td>
+  </tr>
+<% end %>

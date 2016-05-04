@@ -1,0 +1,5 @@
+<h4>New Import</h4>
+<%= form_tag import_imports_path, multipart: true, class: "navbar-form navbar-left search-form" do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import File" %>
+<% end %>
