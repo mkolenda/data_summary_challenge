@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Purchase, type: :model do
   describe ".import" do
-    let(:process) { Purchase.import(Rails.root.join("example_input.tab")) }
+    let(:process) { Purchase.import(Rails.root.join("spec/fixtures/example_input.tab")) }
 
     it "creates the new records" do
       expect { process }.to change(Purchase, :count).from(0).to(4)
