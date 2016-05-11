@@ -1,0 +1,7 @@
+<h1>Total Revenue For All Imported Files: <%= number_to_currency(@revenue) %></h1>
+
+<h2>Import data TSV</h2>
+<%= form_tag({action: :import}, multipart: true) do %>
+  <%= file_field_tag :tsv_file %>
+  <%= submit_tag("Import") %>
+<% end %>
