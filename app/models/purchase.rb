@@ -9,10 +9,10 @@ class Purchase < ActiveRecord::Base
   def self.import(file_name)
     revenue = 0
     CSV.foreach(file_name, { headers: true, col_sep: "\t" }) do |row|
-      merchant = Merchant.find_or_create_by(address: row["merchant address"], name: row["merchant name"])
-      item = Item.find_or_create_by(description: row["item description"], price: row["item price"], merchant: merchant)
-      purchaser = Purchaser.find_or_create_by(name: row["purchaser name"])
-      revenue += create(count: row["purchase count"], item: item, purchaser: purchaser).total
+      merchant = Merchant.find_or_create_by!(address: row["merchant address"].try(:strip), name: row["merchant name"].try(:strip))
+      item = Item.find_or_create_by!(description: row["item description"].try(:strip), price: row["item price"].try(:strip), merchant: merchant)
+      purchaser = Purchaser.find_or_create_by!(name: row["purchaser name"].try(:strip))
+      revenue += where(item: item, purchaser: purchaser).first_or_create!(count: row["purchase count"]).total
     end
     revenue
   end

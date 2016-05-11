@@ -10,14 +10,40 @@ RSpec.describe PurchasesController, type: :controller do
   end
 
   describe "POST #import" do
-    before(:each) { post :import, tsv_file: fixture_file_upload("example_input.tab", "text/tab-separated-values") }
+    context "when a valid file is submitted" do
+      before(:each) { post :import, tsv_file: fixture_file_upload("example_input.tab", "text/tab-separated-values") }
 
-    it "redirects to root" do
-      expect(response).to redirect_to(root_path)
+      it "redirects to root" do
+        expect(response).to redirect_to(root_path)
+      end
+
+      it "displays the gross revenue in a flash message" do
+        expect(flash[:success]).to eq("Import succeeded! $95.00 in gross revenue for file.")
+      end
     end
 
-    it "flashes the gross revenue on redirect" do
-      expect(flash[:success]).to eq("TSV imported! $95.00 in gross revenue for file.")
+    context "when an invalid (non-tab delimited) file is submitted" do
+      before(:each) { post :import, tsv_file: fixture_file_upload("invalid_example_input.tab", "text/tab-separated-values") }
+
+      it "redirects to root" do
+        expect(response).to redirect_to(root_path)
+      end
+
+      it "displays an alert message" do
+        expect(flash[:alert]).to eq("Import failed. Make sure file has header row and columns delimited by tab characters.")
+      end
+    end
+
+    context "when a file is not submitted" do
+      before(:each) { post :import, tsv_file: nil }
+
+      it "redirects to root" do
+        expect(response).to redirect_to(root_path)
+      end
+
+      it "displays an alert message" do
+        expect(flash[:alert]).to eq("Import failed. You must first choose a file.")
+      end
     end
   end
 end

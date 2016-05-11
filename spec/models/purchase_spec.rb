@@ -44,7 +44,7 @@ RSpec.describe Purchase, type: :model do
       expect(purchase).to have_attributes(count: 2)
       expect(purchase.purchaser).to have_attributes(name: "Snake Plissken")
       expect(purchase.item).to have_attributes(description: "$10 off $20 of food")
-      expect(purchase.item.merchant).to have_attributes(name: " Bob's Pizza", address: "987 Fake St")
+      expect(purchase.item.merchant).to have_attributes(name: "Bob's Pizza", address: "987 Fake St")
     end
 
     it "returns the gross revenue for the file" do
