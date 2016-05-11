@@ -3,5 +3,5 @@ class Item < ActiveRecord::Base
   has_many :purchases
   has_many :purchasers, through: :purchases
 
-  validates_presence_of :merchant
+  validates :price, :description, :merchant, presence: true
 end

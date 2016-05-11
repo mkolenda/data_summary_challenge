@@ -4,8 +4,7 @@ class Purchase < ActiveRecord::Base
   belongs_to :purchaser
   belongs_to :item
 
-  validates_presence_of :purchaser
-  validates_presence_of :item
+  validates :purchaser, :item, presence: true
 
   def self.import(file_name)
     revenue = 0
@@ -19,10 +18,10 @@ class Purchase < ActiveRecord::Base
   end
   
   def self.total_revenue
-    joins(:item).select("SUM(purchases.count * items.price) AS total_revenue").first.total_revenue
+    joins(:item).select("SUM(purchases.count * items.price) AS total_revenue").first.total_revenue || 0.00
   end
 
   def total
-    (count * item.price).to_f
+    count * item.price
   end
 end

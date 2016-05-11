@@ -2,17 +2,19 @@ require 'rails_helper'
 
 RSpec.describe Purchase, type: :model do
   describe "validations" do
+    let(:purchase) { build(:purchase) }
+
     context "without an Item" do
       it "is not valid" do
-        purchaser = create(:purchaser)
-        expect(Purchase.new(purchaser: purchaser, item: nil)).not_to be_valid
+        purchase.item = nil
+        expect(purchase).not_to be_valid
       end
     end
 
     context "without a Purchaser" do
       it "is not valid" do
-        item = create(:item)
-        expect(Purchase.new(purchaser: nil, item: item)).not_to be_valid
+        purchase.purchaser = nil
+        expect(purchase).not_to be_valid
       end
     end
   end
