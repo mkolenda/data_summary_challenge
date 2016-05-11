@@ -17,6 +17,10 @@ class Purchase < ActiveRecord::Base
     end
     revenue
   end
+  
+  def self.total_revenue
+    joins(:item).select("SUM(purchases.count * items.price) AS total_revenue").first.total_revenue
+  end
 
   def total
     (count * item.price).to_f

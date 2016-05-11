@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  root 'purchases#index'
 
-  resources :purchases, only: [:new, :create, :index]
-
+  resources :purchases do
+    post "import", on: :collection
+  end
 end

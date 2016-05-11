@@ -9,19 +9,15 @@ RSpec.describe PurchasesController, type: :controller do
     end
   end
 
-  describe "GET #new" do
-    it "renders the template" do
-      get :new
-      expect(response).to render_template(:new)
-    end
-  end
+  describe "POST #import" do
+    before(:each) { post :import, tsv_file: fixture_file_upload("example_input.tab", "text/tab-separated-values") }
 
-  describe "POST #create" do
-    it "redirects to index" do
-      file = fixture_file_upload("example_input.tab", "text/tab-separated-values")
-      post :create, tsv_file: file
-      expect(response).to redirect_to(purchases_path)
-      expect(flash[:notice]).to eq("TSV imported! 95.0 Gross Revenue")
+    it "redirects to root" do
+      expect(response).to redirect_to(root_path)
+    end
+
+    it "flashes the gross revenue on redirect" do
+      expect(flash[:success]).to eq("TSV imported! $95.00 in gross revenue for file.")
     end
   end
 end

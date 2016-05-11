@@ -1,16 +1,13 @@
 class PurchasesController < ApplicationController
+  include ActionView::Helpers::NumberHelper
+
   def index
-    total_revenue = 0
-    Purchase.all.each { |purchase| total_revenue += purchase.total }
-    @revenue = total_revenue
+    @revenue = Purchase.total_revenue
   end
 
-  def new
-  end
-
-  def create
+  def import
     revenue = Purchase.import(params[:tsv_file].path)
-    flash[:notice] = "TSV imported! #{revenue} Gross Revenue"
+    flash[:success] = "TSV imported! #{number_to_currency(revenue)} in gross revenue for file."
     redirect_to action: "index"
   end
 end

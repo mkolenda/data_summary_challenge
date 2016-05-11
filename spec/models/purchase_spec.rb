@@ -13,6 +13,13 @@ RSpec.describe Purchase, type: :model do
     end
   end
 
+  describe ".total_revenue" do
+    it "returns total revenue for all purchases" do
+      create_list(:purchase, 10)
+      expect(Purchase.total_revenue).to eq(250.0)
+    end
+  end
+
   describe "#total" do
     it "returns the total cost of the purchase" do
       purchase = create(:purchase)
