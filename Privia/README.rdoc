@@ -9,6 +9,6 @@ Using the App
 8. Visit <b>127.0.0.1:3000</b> in a browser of your choice.
 9. Use the form to upload a tab-delimited file to the relational database (sqlite3). An example file titled <b>example_input.tab</b> is provided in the root folder of the directory that was cloned down.
 
-Feel free to email ([parthshahva@gmail.com](mailto:parthshahva@gmail.com)) if you have any questions.
+Feel free to email mailto:parthshahva@gmail.com if you have any questions.
 
 
