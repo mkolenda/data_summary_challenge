@@ -1,3 +1,17 @@
+## Using the App
+1. First, clone down this repo with the command <b>git clone https://github.com/parthshahva/data_summary_challenge.git</b>
+2. Next, make sure that you are using <b>Ruby 2.1.9</b> and <b>Rails 4.2.3</b>
+3. Use the command <b>cd data_summary_challenge/Privia</b> to enter the rails application.
+4. Run the command <b>gem install bundler</b> and <b>bundle install</b>
+5. Run the command <b>rake db:migrate</b>
+6. Run the command <b>bundle exec rspec</b> to make sure that all of the tests are passing.
+7. Run the command <b>rails s</b> to start the rails server.
+8. Visit <b>127.0.0.1:3000</b> in a browser of your choice.
+9. Use the form to upload a tab-delimited file to the relational database (sqlite3). An example file titled <b>example_input.tab</b> is provided in the root folder of the directory that was cloned down.
+
+
+
+
 Feel free to email ([mkolenda@priviahealth.com](mailto:mkolenda@priviahealth.com)) if you have any questions.
 
 ## Submission Instructions
