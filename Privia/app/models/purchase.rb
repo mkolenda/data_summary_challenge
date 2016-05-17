@@ -6,10 +6,10 @@ class Purchase < ActiveRecord::Base
 	belongs_to :item
 	belongs_to :upload
 
-	def self.upload(data_file)
+	def self.upload(data_file_path)
 		upload = Upload.create
 		upload_results = {gross_revenue: 0, success: true, upload_id: upload.id}
-		CSV.foreach(data_file.path, {headers: true, col_sep: "\t" }) do |row|
+		CSV.foreach(data_file_path, {headers: true, col_sep: "\t" }) do |row|
 			merchant = Merchant.find_or_create_by(name: row["merchant name"].strip.downcase, 
 				                                  address: row["merchant address"].strip.downcase)
 			item = Item.find_or_create_by(price: row["item price"].strip, 
@@ -26,6 +26,7 @@ class Purchase < ActiveRecord::Base
 		rescue
 			upload_results[:success] = false
 			upload.purchases.destroy_all
+			upload_results[:gross_revenue] = 0
 			upload_results
 	end
 end
