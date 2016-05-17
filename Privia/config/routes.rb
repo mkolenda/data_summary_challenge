@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  get '/' => 'purchases#index'
+  post '/purchases/upload' => 'purchases#upload'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

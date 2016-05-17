@@ -1,0 +1,7 @@
+<p> Upload a tab-deliminated data file, and we will import of all of the purchases into our database. </p>
+
+<%= form_tag({action: :upload}, multipart: true, remote: true) do %>
+   <%= file_field_tag 'tab_file' %><br>
+   <%= hidden_field_tag :authenticity_token, form_authenticity_token %><br>
+   <%= submit_tag 'Submit' %>
+<% end %>
