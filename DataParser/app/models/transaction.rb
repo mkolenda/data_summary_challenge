@@ -22,7 +22,7 @@ class Transaction < ActiveRecord::Base
 			customer = Customer.find_or_create_by(name: key['purchaser name'])
 			product = Product.create(description: key['item description'], price: key['item price'])
 			merchant = Merchant.find_or_create_by(name: key['merchant name'], address: key['merchant address'])
-			transaction = Transaction.create(customer_id: customer.id, product_id: product.id, merchant_id: merchant.id, purchase_count: key['purchase count'], total_price: total_price_of_transaction, attachment: file)
+			transaction = Transaction.create(customer_id: customer.id, product_id: product.id, merchant_id: merchant.id, purchase_count: key['purchase count'], total_price: total_price_of_transaction)
 			gross_total += total_price_of_transaction
 		end
 
