@@ -4,6 +4,32 @@ class Transaction < ActiveRecord::Base
 	belongs_to :merchant
 	validates :merchant_id, :customer_id, :product_id, :purchase_count, :total_price, presence: true
 
+
+	#method to save information to database and return gross total of document
+	def self.save_information(file)
+		#call upon parse_file
+		hash_info = self.parse_file(file)
+		gross_total = 0
+		#iterate through hash to retrieve data
+		hash_info.each do |key|
+			#keep total price of each transaction
+			total_price_of_transaction = 0
+			#use count to perform a times loop
+			key["purchase count"].times do 
+				total_price_of_transaction += key["item price"]
+			end
+			#find_or_create by to avoid duplicates 
+			customer = Customer.find_or_create_by(name: key['purchaser name'])
+			product = Product.create(description: key['item description'], price: key['item price'])
+			merchant = Merchant.find_or_create_by(name: key['merchant name'], address: key['merchant address'])
+			transaction = Transaction.create(customer_id: customer.id, product_id: product.id, merchant_id: merchant.id, purchase_count: key['purchase count'], total_price: total_price_of_transaction, attachment: file)
+			gross_total += total_price_of_transaction
+		end
+
+		#return the gross total of document
+		return gross_total
+	end
+
 	#method for parsing file
 	def self.parse_file(file)
 		parsed_data = CSV.read(file.path, {col_sep: "\t"})
@@ -36,5 +62,4 @@ class Transaction < ActiveRecord::Base
 		hash_info
 	
 	end
-
 end
