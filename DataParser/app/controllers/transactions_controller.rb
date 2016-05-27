@@ -6,5 +6,6 @@ class TransactionsController < ApplicationController
 
 	def create
 		@gross_total = Transaction.save_information(params[:transaction][:attachment])
+		render :index
 	end
 end

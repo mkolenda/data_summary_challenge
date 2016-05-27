@@ -1,0 +1,13 @@
+<h1>Welcome to Privia Health's File Data Parser. Please upload a file!</h1>
+	<%= form_for :transaction, url: {action: 'create'}, html: {:id => 'upload-form'} do |f| %>
+			Upload File
+			<br>
+			<%= f.file_field :attachment %>
+			<%= f.submit "Submit" %>
+	<% end %>
+
+<div id="gross-total">
+	Here are is your gross total from the last report:
+	<br>
+	<%= @gross_total %>
+</div>	
