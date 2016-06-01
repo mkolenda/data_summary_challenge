@@ -1,6 +1,10 @@
 <h2>Import File</h2>
 
 <%= form_tag import_purchases_path, multipart: true do %>
-  <%= file_field_tag :file, accept: "text/csv" %>
+  <%= file_field_tag :file %>
   <%= submit_tag "Import" %>
+<% end %>
+
+<% if Purchase.any? %>
+  <%= render partial: "file" %>
 <% end %>

@@ -6,7 +6,8 @@ require "minitest/autorun"
 # To add Capybara feature tests add `gem "minitest-rails-capybara"`
 # to the test group in the Gemfile and uncomment the following:
 # require "minitest/rails/capybara"
-
+require 'active_support/testing/assertions'
+include ActiveSupport::Testing::Assertions
 # Uncomment for awesome colorful output
 # require "minitest/pride"
 
