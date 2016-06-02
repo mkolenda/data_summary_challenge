@@ -10,7 +10,8 @@ Technologies Used:
 == Instructions to run app
 
 * pull my PR down
-* bundle
+* <tt>bundle</tt>
+* <tt>rake db:create</tt> <tt>rake db:migrate</tt>
 * run <tt>rails s</tt> and open app in browser
 * click 'Choose file' and import a .tab file from your computer
 * click 'Import'
