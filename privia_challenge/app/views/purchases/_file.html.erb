@@ -10,14 +10,23 @@
       <th>Merchant Address</th>
       <th>Merchant Name</th>
     </tr>
+    <% @total_price = [] %>
     <% @purchases.each do |p| %>
       <tr>
         <td><%= p.purchaser_name %></td>
         <td><%= p.item_description %></td>
-        <td><%= p.item_price %></td>
+        <td><%= number_to_currency(p.item_price, unit: "$") %></td>
         <td><%= p.purchase_count %></td>
+        <% @total_price << ((p.item_price * p.purchase_count).to_d) %>
         <td><%= p.merchant_address %></td>
         <td><%= p.merchant_name %></td>
+
       </tr>
       <% end %>
   </table>
+
+  <h3>Total Gross Revenue:</h3>
+
+
+
+    <%= number_to_currency(total_revenue, unit: "$") %>

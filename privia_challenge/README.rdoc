@@ -1,28 +1,25 @@
-== README
+== Import TSV app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app allows users to import a .tab file into a database and view the result.
 
-Things you may want to cover:
+Technologies Used:
 
-* Ruby version
+* ruby 2.3.1
+* Rails 4.2.6
 
-* System dependencies
+== Instructions to run app
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* pull my PR down
+* bundle
+* run <tt>rails s</tt> and open app in browser
+* click 'Choose file' and import a .tab file from your computer
+* click 'Import'
+* database should be loaded with file's values and display on screen with total revenue
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+== Tests
+
+* minitest-rails (2.2.1)
+* run <tt>rake</tt> to run tests as defined in <tt>lib/tasks/minitest.rake</tt>

@@ -10,7 +10,7 @@ describe "Purchases integration" do
     Snake Plissken	$20 Sneakers for $5	5.0    4	 123 Fake St	 Sneaker Store Emporium
     eos
 
-    file = Tempfile.new('example_file.tab')
+    file = Tempfile.new('example.tab')
     file.write(file_rows)
     file.rewind
 

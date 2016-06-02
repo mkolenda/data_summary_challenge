@@ -1,8 +1,11 @@
 class PurchasesController < ApplicationController
+  helper TotalRevenueHelper
+
   before_action :clear_database, only: :import
 
   def index
     @purchases = Purchase.all
+    @total_revenue
   end
 
   def import

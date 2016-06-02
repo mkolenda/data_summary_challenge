@@ -29,7 +29,7 @@ class Purchase < ActiveRecord::Base
     end
 
     Purchase.create!(data_out)
-    
+
   end
 
 end
