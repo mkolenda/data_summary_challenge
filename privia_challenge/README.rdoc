@@ -14,10 +14,7 @@ Technologies Used:
 * run <tt>rails s</tt> and open app in browser
 * click 'Choose file' and import a .tab file from your computer
 * click 'Import'
-* database should be loaded with file's values and display on screen with total revenue
-
-
-
+* database should be loaded with only the newly uploaded file's values and display on screen with total revenue
 
 == Tests
 
