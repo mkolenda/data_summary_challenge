@@ -1,0 +1,23 @@
+== Import TSV app
+
+This app allows users to import a .tab file into a database and view the result.
+
+Technologies Used:
+
+* ruby 2.3.1
+* Rails 4.2.6
+
+== Instructions to run app
+
+* pull my PR down
+* <tt>bundle</tt>
+* <tt>rake db:create</tt> <tt>rake db:migrate</tt>
+* run <tt>rails s</tt> and open app in browser
+* click 'Choose file' and import a .tab file from your computer
+* click 'Import'
+* database should be loaded with only the newly uploaded file's values and display on screen with total revenue
+
+== Tests
+
+* minitest-rails (2.2.1)
+* run <tt>rake</tt> to run tests as defined in <tt>lib/tasks/minitest.rake</tt>
